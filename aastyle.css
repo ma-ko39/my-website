@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800;900&family=Noto+Sans+JP:wght@700;900&family=Noto+Serif+JP:wght@400;500;700&display=swap');
+
+/* --- CSS設計システム & 変数 --- */
+:root {
+  /* 全体の背景と文字色 */
+  --bg-color: #f0f0f0;
+  --text-color: #000000;
+  --border-color: #555555;
+
+  /* 各アーティストのカラーアイデンティティ */
+  --color-synthion: #5b92e5;
+  /* 爽快感のあるブルー */
+  --color-yutaimai: #a370f7;
+  /* ハードなパープル */
+  --color-himehina: #ff9ebb;
+  /* パステルピンク */
+  --color-kaicha: #e89c9c;
+  /* くすみのあるサーモンピンク/薄紅色 */
+  --color-joefight: #e60012;
+  /* ビビッドなレッド */
+
+  /* フォント指定 */
+  --font-sans: 'Noto Sans JP', 'M PLUS 1p', 'Zen Kaku Gothic New', sans-serif;
+  --font-serif: 'Noto Serif JP', 'Zen Old Mincho', 'Shippori Mincho', serif;
+}
+
+/* --- 基本設定 --- */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  overflow-x: hidden;
+  /* 横揺れ防止 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  /* 横揺れ防止 */
+  width: 100%;
+}
+
+/* --- コンテナと大枠 --- */
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+/* --- ヘッダー（タイトル） --- */
+.site-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.site-title {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 0.1rem;
+}
+
+/* --- ナビゲーション --- */
+.global-nav {
+  width: 100%;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  background-color: #e8e8e8;
+  margin-bottom: 40px;
+}
+
+.global-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.global-nav li {
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+}
+
+.global-nav a {
+  display: block;
+  padding: 15px 0;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  border-right: 1px solid #d0d0d0;
+  box-sizing: border-box;
+}
+
+.global-nav li:last-child a {
+  border-right: none;
+}
+
+.global-nav a:hover {
+  background-color: #d8d8d8;
+}
+
+/* --- 自己紹介エリア --- */
+.profile-section {
+  text-align: center;
+  padding: 0 20px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.profile-text {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  white-space: pre-line;
+  word-break: break-word;
+  /* 長い単語の折り返し */
+  overflow-wrap: anywhere;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  flex-wrap: wrap;
+  /* スマホで折り返せるように */
+}
+
+.profile-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  word-break: break-all;
+  /* URLなどの長いリンク文字の改行 */
+  max-width: 100%;
+}
+
+.profile-links a:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* --- アーティスト紹介セクション --- */
+.artist-section {
+  scroll-margin-top: 20px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 各アーティストセクションのカラー適用 */
+#synthion .artist-header {
+  background-color: var(--color-synthion);
+}
+
+#yutaimai .artist-header {
+  background-color: var(--color-yutaimai);
+}
+
+#himehina .artist-header {
+  background-color: var(--color-himehina);
+}
+
+#kaicha .artist-header {
+  background-color: var(--color-kaicha);
+}
+
+#joefight .artist-header {
+  background-color: var(--color-joefight);
+}
+
+.artist-header {
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.artist-name {
+  font-family: var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 0.05rem;
+}
+
+.artist-info {
+  max-width: 800px;
+  padding: 30px 20px 10px;
+  text-align: center;
+  font-size: 1.05rem;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* --- YouTube動画グリッド --- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 512px);
+  gap: 24px;
+  justify-content: center;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 1048px;
+  /* 512px * 2 + 24px gap */
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.video-item {
+  width: 512px;
+  height: 288px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #000;
+  box-sizing: border-box;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- フッター（終わりに） --- */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px 60px;
+  background-color: #e0e0e0;
+  border-top: 2px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.footer-title {
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  white-space: pre-line;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* --- レスポンシブ対応 (タブレット) --- */
+@media (max-width: 1100px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    max-width: 512px;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .video-item {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .global-nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .global-nav li {
+    min-width: 0;
+  }
+
+  .global-nav a {
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+  }
+
+  /* グリッドの端調整 */
+  .global-nav li:nth-child(3n) a {
+    border-right: none;
+  }
+}
+
+/* --- レスポンシブ対応 (スマホ・縦並び) --- */
+@media (max-width: 650px) {
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .artist-name {
+    font-size: 1.8rem;
+  }
+
+  .profile-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile-links a {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .global-nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .global-nav li {
+    width: 100%;
+  }
+
+  .global-nav a {
+    border-right: none;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 12px 0;
+  }
+
+  .global-nav li:last-child a {
+    border-bottom: none;
+  }
+}
